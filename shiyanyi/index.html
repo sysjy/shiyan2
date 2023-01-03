@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/autumn.css" type="text/css">
+		<title>四季诗画——秋</title>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    	<script type="text/javascript">
+        	$(function(){
+    	  		$("#question").click(function(){
+    		 	 	$(".choose").fadeIn(1000);
+    	  		})
+    	  		$(".c1").click(function(){
+    	  			$(".gameon").fadeIn(1000);
+    	  		})
+    	  		$(".c2").click(function(){
+    	  			$(".gameover").fadeIn(1000);
+    	  		})
+    	  		$(".c3").click(function(){
+    	  			$(".gameover").fadeIn(1000);
+    	  			$("#card").hide();
+    	  			choosecount++;
+    	  		})
+    	  		$("#gain").click(function(){
+    	  			$(".gameon").fadeOut(1000);
+    	  			$(".choose").fadeOut(1000);
+    	  			$(".card").fadeIn(1000);
+    	  		})
+    	  		$("#sharecard").click(function(){
+    	  			$(".card").fadeOut(1000);
+    	  		})
+    	  		$("#putin").click(function(){
+    	  			$(".card").fadeOut(1000);
+    	  		})
+    	  		$(".c4").click(function(){
+    	  			$(".gameover").fadeIn(1000);
+    	  		})
+    	  		$("#again").click(function(){
+    	  			$(".gameover").fadeOut(1000);
+    	  			$(".choose").fadeIn(1000);
+    	  		})
+    	  		$("#rule").click(function(){
+    		 	 	$(".msgInfo").fadeOut(1000);
+    		 	 	$(".rule").fadeIn(500);
+    	  		})
+    	  		$("#ruleback").click(function(){
+    	  			$(".rule").fadeOut(500);
+    	  		})
+    	  		$("#package").click(function(){
+    	  			$(".package").fadeIn(1000);
+    	  		})
+    	  		$("#packageback").click(function(){
+    	  			$(".package").fadeOut(1000);
+    	  		})
+    	  		$("#putin").click(function(){
+    	  			$(".package").css({
+					"background":"url(res/背包3.png)",
+					"background-size":"100% 100%",
+					})
+    	  			$("#next").fadeIn(1500);
+    	  		})
+      		})
+        	function change2(){
+        		document.getElementById("rule").style.transform="scale(1.3)";
+      		}
+     		function reset2(){
+       			document.getElementById("rule").style.transform="scale(1)";
+     		}
+     		function change3(){
+        		document.getElementById("music").style.transform="scale(1.3)";
+      		}
+     		function reset3(){
+       			document.getElementById("music").style.transform="scale(1)";
+     		}
+     		function change4(){
+        		document.getElementById("package").style.transform="scale(1.3)";
+      		}
+     		function reset4(){
+       			document.getElementById("package").style.transform="scale(1)";
+     		}
+     		function change5(){
+        		document.getElementById("share").style.transform="scale(1.3)";
+      		}
+     		function reset5(){
+       			document.getElementById("share").style.transform="scale(1)";
+     		}
+     		var bgaudiocount = 0;
+    		function bgaudio(){
+        		++bgaudiocount;
+        		if(bgaudiocount % 2 == 1){
+            		document.getElementById("bgaudio").play();
+        		}else{
+            		document.getElementById("bgaudio").pause();
+        		}
+   			}
+			function copyUrl2(){
+				document.getElementById("sharetxt").style.display="block";
+    			var Url2=document.getElementById("sharetxt");
+    			Url2.select(); // 选择对象
+    			document.execCommand("Copy"); // 执行浏览器复制命令
+    			alert("已复制好，可贴粘。");
+    			document.getElementById("sharetxt").style.display="none";
+			}
+    	</script>
+		<style>	
+			body{							
+				width: 100%;
+				height: 100%;
+				min-width: 500px;
+				z-index: -10;
+				zoom: 1;				
+				background-image: url("res/autumn.jpg");
+				background-repeat:no-repeat;
+				background-size:100% 100%;
+				background-position: center 0;
+			}	
+		</style>
+	</head>
+
+	<body>
+			<!--菜单按钮-->
+			<a href="https://fanhua113.github.io/ex/ex/ex/">
+    			<img src="res/返回.png" width="75" height="70"
+    				style="position: absolute; left: 4vw; top: 3vh;">
+   			</a>
+   			<img src="res/规则.png" id="rule"
+   				onmouseover ="change2()" onmouseout="reset2()">
+   			<img src="res/音乐.png" id="music"
+   				onmouseover ="change3()" onmouseout="reset3()" onclick="bgaudio()">
+   			<audio src="res/Erode - ❃.mp3" id="bgaudio"></audio>
+   			<img src="res/背包.png" id="package"
+   				onmouseover ="change4()" onmouseout="reset4()">
+   			<img src="res/分享.png" id="share"
+   				onmouseover ="change5()" onmouseout="reset5()" onclick="copyUrl2()">
+   			<!--两人的对话-->
+			<ul id="dialogue">
+				<li>
+					<div class="content">
+						<p>秋天真的是一个好季节！</p>
+						<img src="res/dialogue.png" />
+						
+					</div>
+				</li>
+				<li>
+					<div class="content">
+						<p>我来帮忙了！</p>
+						<img src="res/dialogue.png" />
+					</div>
+				</li>
+			</ul>
+			<!--答题界面-->
+			<ul id="question">
+				<li>
+					<a>进行答题</a>
+				</li>
+			</ul>
+      		<div class="choose" style="display: none;">
+				<img src="res/小圆标.png" class="c1"/>
+				<img src="res/小圆标.png" class="c2"/>
+				<img src="res/小圆标.png" class="c3"/>
+				<img src="res/小圆标.png" class="c4"/>
+			</div>
+			<!--选择正确-->
+			<div class="gameon" style="display: none;">
+				<img src="res/获得卡片.png" id="gain"/>
+    		</div>
+    		<div class="card" style="display: none;">
+				<img src="res/分享卡片.png" id="sharecard" />
+				<img src="res/放入背包.png" id="putin" />
+    		</div>
+    		<!--选择错误-->
+    		<div class="gameover" style="display: none;">
+				<img src="res/重新答题.png" id="again"/>
+    		</div>
+    		<!--规则按钮-->
+			<div class="rule" style="display:none;">
+				<img src="res/规则返回.png" id="ruleback"/>
+			</div>
+			<!--背包按钮-->
+			<div class="package" style="display:none;">
+				<img src="res/背包返回.png" id="packageback"/>
+			</div>
+			<textarea id="sharetxt" style="display:none;">https://sysjy.github.io/shiyanyi/index</textarea>
+			<a href="http://sysjy.github.io/shiyan2/index">
+				<img src="res/spring下一季节.png" id="next" style="display:none;"/>
+			</a>
+			<div id="active"></div>
+	</body>
+</html>
